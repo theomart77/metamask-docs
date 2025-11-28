@@ -1,4 +1,16 @@
----
+-const verificationKey = 'insert-your-web3auth-verification-key'.replace(/\\n/g, '\n')
+
+const idToken = 'insert-the-users-id-token'
+
+try {
+  const decoded = jwt.verify(idToken, verificationKey, {
+    issuer: 'https://api-auth.web3auth.io',
+    audience: 'your-project-client-id',
+  })
+  console.log(decoded)
+} catch (error) {
+  console.error(error)
+}--
 title: Web3Auth Identity Token
 sidebar_label: Web3Auth Identity Token
 image: 'img/metamaskog.jpg'
